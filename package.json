@@ -18,7 +18,7 @@
     "aws"
   ],
   "author": "Larry Anderson",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "aws-sdk": "^2.6.14"
   },
