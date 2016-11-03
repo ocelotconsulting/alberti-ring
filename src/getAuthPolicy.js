@@ -14,7 +14,7 @@ const getAuthPolicy = (policyAuthorizers) => (event, context, callback) => {
     restApiId: apiGatewayArnTmp[0],
     stage: apiGatewayArnTmp[1]
   }
-  validateToken('fake')
+  validateToken(event.authorizationToken)
   .then(authorizeRequest(policyAuthorizers, event.authorizationToken, awsAccountId, apiOptions))
   .then((policy) =>
     // finally, build the policy and exit the function
