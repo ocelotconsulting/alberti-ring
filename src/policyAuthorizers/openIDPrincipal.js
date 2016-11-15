@@ -1,12 +1,12 @@
 const AuthPolicy = require('../AuthPolicy')
 
-const openIDPrincipalPolicyAuthorizer = (token, principalId) => {
+const openIDPrincipalPolicyAuthorizer = (tokenValidation) => {
   console.log('OpenID Authorizer')
   // TODO: Actually implement
   return Promise.resolve({
     allow: [{
       verb: AuthPolicy.HttpVerb().GET,
-      resource: '/secrets/username/secretId'
+      resource: `/${encodeURIComponent(tokenValidation['principal'])}/*`
     }],
     deny: []
   })

@@ -9,7 +9,7 @@ const addPolicyDecisions = (policy) => (decisions) => {
   }
 }
 
-const authorizeRequest = (policyAuthorizers, token, awsAccountId, apiOptions) => (principalId) => {
+const authorizeRequest = (policyAuthorizers, awsAccountId, apiOptions) => (tokenValidation) => {
   // if the token is valid, a policy must be generated which will allow or deny access to the client
 
   // The token and context/event should be inspected now to determine which methods
@@ -43,11 +43,10 @@ const authorizeRequest = (policyAuthorizers, token, awsAccountId, apiOptions) =>
   // made with the same token
 
   // the example policy below denies access to all resources in the RestApi
-  const policy = new AuthPolicy(principalId, awsAccountId, apiOptions)
-  return Promise.all(policyAuthorizers.map(policyAuthorizer => policyAuthorizer(token, principalId)))
+  const policy = new AuthPolicy(tokenValidation['principal'], awsAccountId, apiOptions)
+  return Promise.all(policyAuthorizers.map(policyAuthorizer => policyAuthorizer(tokenValidation)))
   .then((authZDecisions) => {
     authZDecisions.map(addPolicyDecisions(policy))
-    policy.denyAllMethods()
     return policy
   })
 }

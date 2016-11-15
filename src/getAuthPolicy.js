@@ -12,14 +12,13 @@ const getAuthPolicy = (policyAuthorizers) => (event, context, callback) => {
   const apiOptions = {
     region: tmp[3],
     restApiId: apiGatewayArnTmp[0],
-    stage: apiGatewayArnTmp[1]
+    stage: apiGatewayArnTmp[1],
+    method: apiGatewayArnTmp[2],
+    resourcePath: apiGatewayArnTmp[3]
   }
   validateToken(event.authorizationToken)
-  .then(authorizeRequest(policyAuthorizers, event.authorizationToken, awsAccountId, apiOptions))
-  .then((policy) =>
-    // finally, build the policy and exit the function
-    callback(null, policy.build())
-  )
+  .then(authorizeRequest(policyAuthorizers, awsAccountId, apiOptions))
+  .then((policy) => callback(null, policy.build()))
   .catch((err) => {
     if (err) {
       console.log(err.stack)

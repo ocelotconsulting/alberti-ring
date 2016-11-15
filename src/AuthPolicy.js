@@ -55,9 +55,9 @@ class AuthPolicy {
      *
      * @property pathRegex
      * @type {RegExp}
-     * @default '^\/[/.a-zA-Z0-9-\*]+$'
+     * @default '^\/[/.a-zA-Z0-9-\*|%]+$'
      */
-    this.pathRegex = new RegExp('^[/.a-zA-Z0-9-*]+$')
+    this.pathRegex = new RegExp('^[/.a-zA-Z0-9-*|%]+$')
 
     // These are the internal lists of allowed and denied methods. These are lists
     // of objects and each object has two properties: a resource ARN and a nullable
