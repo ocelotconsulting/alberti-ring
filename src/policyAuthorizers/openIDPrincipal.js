@@ -6,7 +6,7 @@ const openIDPrincipalPolicyAuthorizer = (tokenValidation) => {
   return Promise.resolve({
     allow: [{
       verb: AuthPolicy.HttpVerb().GET,
-      resource: `/${encodeURIComponent(tokenValidation['principal'])}/*`
+      resource: `/user/${encodeURIComponent(tokenValidation['principal'])}/*`
     }],
     deny: []
   })

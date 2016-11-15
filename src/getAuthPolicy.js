@@ -1,4 +1,4 @@
-const validateToken = require('./validateToken')
+const validateToken = require('./validateAuth0Token')
 const authorizeRequest = require('./authorizeRequest')
 
 const getAuthPolicy = (policyAuthorizers) => (event, context, callback) => {
