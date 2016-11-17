@@ -1,6 +1,6 @@
 {
-  "name": "@ocelotconsulting/alberti-ring",
-  "version": "0.0.1",
+  "name": "alberti-ring",
+  "version": "0.0.2",
   "description": "An library for creating AWS Lambdas which act as access mechanisms (custom authorizers) to secrets backed by alberti, exposed via AWS API Gateway.",
   "main": "lib",
   "keywords": [
