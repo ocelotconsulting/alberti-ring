@@ -1,35 +1,19 @@
 {
-  "name": "alberti-ring",
+  "name": "@ocelotconsulting/alberti-ring",
   "version": "0.0.1",
-  "description": "An access mechanism (custom authorizer) to secrets backed by alberti, exposed via AWS API Gateway.",
-  "main": "app.js",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/ocelotconsulting/alberti-ring.git"
-  },
-  "scripts": {
-    "clean": "rm dist*.zip || true && rm -rf build",
-    "dist": "mkdir build && npm install && npm prune --production && mv node_modules ./build && npm install && node zip.js",
-    "test": "node -e \"function noop(){}\"",
-    "deploy": ". ./deploy.sh"
-  },
+  "description": "An library for creating AWS Lambdas which act as access mechanisms (custom authorizers) to secrets backed by alberti, exposed via AWS API Gateway.",
+  "main": "lib",
   "keywords": [
     "nodejs",
     "aws"
   ],
   "author": "Larry Anderson",
   "license": "MIT",
-  "dependencies": {
-    "aws-sdk": "^2.7.0",
-    "superagent": "^2.3.0",
-    "superagent-promise": "^1.1.0"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ocelotconsulting/alberti-ring.git"
   },
-  "devDependencies": {
-    "archiver": "*",
-    "eslint": "^3.8.0",
-    "eslint-config": "^0.3.0",
-    "eslint-config-standard": "^6.2.0",
-    "eslint-plugin-promise": "^3.0.0",
-    "eslint-plugin-standard": "^2.0.1"
+  "engines": {
+    "npm": "4.3.2"
   }
 }

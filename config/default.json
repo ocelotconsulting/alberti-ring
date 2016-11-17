@@ -1,4 +1,0 @@
-{
-  "auth0-token-info-endpoint": "https://larry.auth0.com/tokeninfo",
-  "auth0-user-info-endpoint": "https://larry.auth0.com/userinfo"
-}
